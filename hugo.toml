@@ -1,0 +1,44 @@
+baseURL = "https://musewonder222.github.io/yoruben/"
+languageCode = "ja"
+title = "ヨルベン｜夜の勉強のための資格・通信講座の比較"
+defaultContentLanguage = "ja"
+hasCJKLanguage = true
+enableRobotsTXT = true
+
+[params]
+  description = "仕事終わり・夜のスキマ時間に資格を取りたい社会人のための、通信講座の料金・合格率・教材の調査比較メディア。公式情報を複数源で照合し、出典を明記します。体験談は書きません。"
+  operator = "ヨルノ制作所"
+
+[menu]
+  [[menu.main]]
+    name = "資格別ガイド"
+    url = "/shikaku/"
+    weight = 1
+  [[menu.main]]
+    name = "講座比較"
+    url = "/kouza/"
+    weight = 2
+  [[menu.main]]
+    name = "独学 vs 通信"
+    url = "/hikaku/"
+    weight = 3
+  [[menu.main]]
+    name = "お金と制度"
+    url = "/okane/"
+    weight = 4
+  [[menu.main]]
+    name = "運営者情報"
+    url = "/about/"
+    weight = 5
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]

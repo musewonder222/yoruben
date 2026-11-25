@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}｜ヨルベン{{ end }}</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+{{ with .OutputFormats.Get "RSS" }}<link rel="alternate" type="application/rss+xml" title="ヨルベン" href="{{ .RelPermalink }}">{{ end }}
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="site-title" href="{{ "/" | relURL }}">ヨルベン</a>
+    <p class="site-tagline">夜の勉強のための、資格・通信講座の比較メディア</p>
+    <nav class="site-nav">
+      {{ range .Site.Menus.main }}<a href="{{ .URL | relURL }}">{{ .Name }}</a>{{ end }}
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+{{ block "main" . }}{{ end }}
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <nav class="footer-nav">
+      <a href="{{ "/about/" | relURL }}">運営者情報</a>
+      <a href="{{ "/privacy/" | relURL }}">プライバシーポリシー・免責事項</a>
+      <a href="{{ "/contact/" | relURL }}">お問い合わせ</a>
+    </nav>
+    <p>運営：{{ .Site.Params.operator }}／当サイトにはアフィリエイトリンク（PR）が含まれます。価格・合格率などの情報は各記事に記載の確認時点のもので、出典を明記しています。</p>
+    <p>&copy; {{ now.Year }} ヨルベン（{{ .Site.Params.operator }}）</p>
+  </div>
+</footer>
+</body>
+</html>

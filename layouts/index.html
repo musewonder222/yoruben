@@ -1,0 +1,19 @@
+{{ define "main" }}
+<section class="hero">
+  <h1>夜に勉強する人のための、資格・通信講座の比較メディア</h1>
+  <p>ヨルベンは、仕事終わりの限られた時間で資格を取りたい社会人のために、通信講座の<strong>料金・合格率・教材・サポート</strong>を公式情報で調べ比べてまとめるメディアです。受講していない講座の体験談は書きません。数字には必ず出典と確認時点を付けます。</p>
+</section>
+{{ .Content }}
+<section>
+  <h2>新着記事</h2>
+  <ul class="post-list">
+  {{ range first 10 (where .Site.RegularPages "Section" "ne" "").ByDate.Reverse }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月2日" }}</time>
+      {{ with .Description }}<p>{{ . }}</p>{{ end }}
+    </li>
+  {{ end }}
+  </ul>
+</section>
+{{ end }}
